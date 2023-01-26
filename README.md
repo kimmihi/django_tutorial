@@ -1,8 +1,6 @@
 # django_tutorial
 
-## part1
-
----
+## Part 1
 
 ### 프로젝트 생성하기
 
@@ -55,3 +53,33 @@ python3 manage.py startapp polls
 - `polls/urls.py`를 생성한다.
 - `polls.urls.py`에 경로를 작성하고 `views.py`의 함수와 매칭시킨다.
 - `server/urls.py`에 `polls` 앱의 경로를 추가한다.
+
+---
+
+## Part 2
+
+### 데이터베이스 설치
+
+Django는 기본적으로 SQLite를 사용하도록 구성되어있다. 하지만 다른 데이터베이스와 연동하여 개발할 수도 있다. ex) PostgreSQL
+
+### 모델 만들기
+
+`polls/modles.py`에 클래스를 사용하여 모델을 생성할 것이다. 모델은 데이터의 스키마 역할을 한다.
+
+생성한 클래스별로 테이블이라고 생각하면된다. 해당 테이블 안에 어떤 형식을 갖는 데이터를 정의할 것인지 작성하였다. 또한 외래키를 사용하여 테이블간의 관계를 맺을 수도 있다.
+
+### 모델의 활성화
+
+`models.py`에서 생성한 모델은 데이터베이스 스키마를 생성하고 ORM을 통해 `Question`과 `Choice` 객체에 접근할 수 있다.
+
+아래 명령을 실행시켜 변경시킨 모델을 migration으로 저장시킬 준비를 한다.(settings.py의 INSTALLED_APPS에 polls가 있어야한다.)
+
+```shell
+python manage.py makemigrations polls
+```
+
+그 다음 아래 명령을 통해 실제 마이그레이션을 적용한다. (데이터베이스에 모델과 관련된 테이블을 생성한다.)
+
+```shell
+python manage.py migrate polls
+```
