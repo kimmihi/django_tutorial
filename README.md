@@ -83,3 +83,25 @@ python manage.py makemigrations polls
 ```shell
 python manage.py migrate polls
 ```
+
+---
+
+## Part 3
+
+### view 추가하기
+
+view에 요청이 왔을 때 처리할 로직을 작성하고, `urls.py`에 URL과 view를 매칭시켜준다.
+
+`urls.py`에 URL을 작성할 때 `<int:question_id>`라고 작성했는데, 이는 URL에서 동적인 값을 받아 `question_id`라는 변수명으로 view 함수에서 받을 수 있다.
+
+### 모델 불러오기
+
+앱에 정의한 모델을 불러와서 특정 로직을 통해 데이터베이스에 저장된 데이터를 반환할 수 있다.
+
+### 404에러 일으키기
+
+404는 요청한 결과가 없을 경우 반환하는 응답 코드이다. `get_object_or_404()` 또는 `get_list_or_404()`를 통해 객체나 리스트가 있으면 이를 반환하고 없으면 404를 반환할 수 있다.
+
+### 템플릿 적용하기
+
+앱내에 템플릿을 만들어 view의 결과로 반환할 수 있다.
